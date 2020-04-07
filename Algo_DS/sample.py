@@ -4,7 +4,7 @@ class node:
         self.next = None 
 
 class LL : 
-    def __init__(self):
+    def __init__(self): 
         self.head = None 
     
     def appendstart(self,data): 
@@ -58,7 +58,8 @@ class LL :
                 prevnode = currnode 
             currnode = currnode.next
         prevnode.next = None
-            
+
+
     def deletemid(self,data) : 
         tofindnode = node(data)
         currnode = self.head
@@ -72,6 +73,30 @@ class LL :
         xnode.next = currnode.next 
         currnode.next = None
 
+    def swapnodes(self,data,data1) : 
+        if data == data1 :
+            return 
+        prev1 = None 
+        curr1 = self.head
+        while curr1 and curr1.data != data :
+            prev1 = curr1 
+            curr1 = curr1.next 
+        prev2 = None 
+        curr2 = self.head 
+        while curr2 and curr2.data != data1 :
+            prev2 = curr2 
+            curr2 = curr2.next 
+        # print(prev1.data, curr1.data , prev2.data, curr2.data)
+        temp1 = curr1 
+        temp2 = curr2 
+        curr2.next = curr1.next 
+        prev1.next = curr2 
+        prev2.next = temp1
+        temp1.next = temp2.next
+        # print(temp.data)
+
+
+
 ll = LL()
 ll.appendend(1)
 ll.appendend(2)
@@ -79,6 +104,6 @@ ll.appendend(3)
 ll.appendend(10)
 ll.appendend(30)
 ll.print()
-x = int(input("enter a nnumber : "))
-ll.deletemid(x)
+
+ll.swapnodes(2,10)
 ll.print()

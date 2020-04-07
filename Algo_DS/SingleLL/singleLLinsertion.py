@@ -20,9 +20,12 @@ class Linked_List:
 
     def printll(self):
         currentnode = self.head 
+        count = 0
         while currentnode:
+            count = count+1
             print(currentnode.data)
             currentnode = currentnode.next
+        print("total count : ",count)
 
     def append_start(self,data):
         newnode = node(data)
